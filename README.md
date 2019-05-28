@@ -1,6 +1,6 @@
 # CORS
 
-CORS 是一个 W3C 标准，全称是 “跨域资源共享”（Cross-Origin resource sharing）。这是一个 CORS 的测试项目，服务有 Express 提供，客户端是一个简单的页面，包含几个点击之后会发送请求的按钮。
+CORS 是一个 W3C 标准，全称是 “跨域资源共享”（Cross-Origin resource sharing）。这是一个 CORS 的测试项目，服务由 Express 提供，客户端是一个简单的页面，包含几个点击之后会发送请求的按钮。
 
 # Usage
 
