@@ -1,0 +1,22 @@
+{
+  "name": "CORS",
+  "version": "1.0.0",
+  "description": "CORS tester",
+  "main": "index.js",
+  "repository": "git@github.com:kawhi66/CORS.git",
+  "author": "https://kawhi.site",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.17.1",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.32.2",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.4.1"
+  },
+  "scripts": {
+    "client": "webpack-dev-server",
+    "server": "node server/server.js"
+  }
+}
