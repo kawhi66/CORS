@@ -1,24 +1,41 @@
 import axios from 'axios';
 
-const app = document.getElementById("app");
-app.appendChild(btnFactory('GET /nonsupport/cors/get', {
+const simple = document.getElementById("simple");
+simple.appendChild(btnFactory('GET /cors/nonsupport', {
     method: 'get',
-    url: '/nonsupport/cors/get'
+    url: '/cors/nonsupport'
 }))
 
-app.appendChild(btnFactory('GET /support/cors/get', {
+simple.appendChild(btnFactory('GET /cors/support', {
     method: 'get',
-    url: '/support/cors/get'
+    url: '/cors/support'
 }))
 
-app.appendChild(btnFactory('POST /nonsupport/cors/post', {
-    method: 'POST',
-    url: '/nonsupport/cors/post'
+simple.appendChild(btnFactory('POST /cors/nonsupport', {
+    method: 'post',
+    url: '/cors/nonsupport'
 }))
 
-app.appendChild(btnFactory('POST /support/cors/post', {
-    method: 'POST',
-    url: '/support/cors/post'
+simple.appendChild(btnFactory('POST /cors/support', {
+    method: 'post',
+    url: '/cors/support'
+}))
+
+const notSimple = document.getElementById("not-so-simple");
+notSimple.appendChild(btnFactory('POST /cors/nonsupport', {
+    headers: {
+        'X-Custom-Header': 'hello world'
+    },
+    method: 'post',
+    url: '/cors/nonsupport'
+}))
+
+notSimple.appendChild(btnFactory('POST /cors/support', {
+    headers: {
+        'X-Custom-Header': 'hello world'
+    },
+    method: 'post',
+    url: '/cors/support'
 }))
 
 /**
@@ -32,12 +49,14 @@ function btnFactory(value, opts) {
     btn.innerText = value;
     btn.addEventListener('click', function () {
         const {
+            headers,
             method,
             url
         } = opts;
 
         axios({
             baseURL: 'http://localhost:3000',
+            headers,
             method,
             responseType: 'json',
             url
