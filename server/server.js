@@ -1,13 +1,21 @@
 var express = require('express');
 var app = express();
 
-app.get('/', function (req, res) {
+app.get('/nonsupport/cors/get', function (req, res) {
     res.send('Hello World');
 });
 
-app.post('/post', function (req, res) {
+app.get('/support/cors/get', function (req, res) {
     res.set('Access-Control-Allow-Origin', 'http://localhost:3001');
-    res.set('Content-Type', 'text/plain');
+    res.send('Hello World');
+});
+
+app.post('/nonsupport/cors/post', function (req, res) {
+    res.status(200).end('this is a cors POST request');
+});
+
+app.post('/support/cors/post', function (req, res) {
+    res.set('Access-Control-Allow-Origin', 'http://localhost:3001');
     res.status(200).end('this is a cors POST request');
 });
 
